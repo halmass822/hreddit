@@ -16,17 +16,19 @@ const frontPageSlice = createSlice({
         loadingState: true,
         currentSubreddit: "popular",
         subreddits: ["popular"],
+        subredditLoadError: false,
         posts: [],
     },
     extraReducers: (builder) => {
         builder.addCase(fetchTopSubreddits.fulfilled, (state, action) => {
-            console.log(action.payload);
+            console.log(action.payload.data.children);
+            console.log(action.payload.data.children.map((x) => x.data.display_name));
+            state.subreddits = action.payload.data.children.map((x) => x.data.display_name);
+            // console.log(action.payload.map((x) => ))
+            // state.subreddits = action.payload.map()
         });
-        builder.addCase(fetchTopSubreddits.pending, (state) => {
-            console.log("hmmmm");
-        });
-        builder.addCase(fetchTopSubreddits.rejected, (state, action) => {
-            console.log("failed!");
+        builder.addCase(fetchTopSubreddits.rejected, (state) => {
+            state.frontPageSlice.subredditLoadError = true;
         });
     }    
 });
