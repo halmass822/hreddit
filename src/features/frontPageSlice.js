@@ -21,7 +21,6 @@ const frontPageSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder.addCase(fetchTopSubreddits.fulfilled, (state, action) => {
-            console.log(action.payload.data.children.map((x) => x.data.display_name));
             state.subreddits = action.payload.data.children.map((x) => x.data.display_name);
             state.subredditLoadError = false;
         });
