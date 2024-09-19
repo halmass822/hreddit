@@ -17,12 +17,14 @@ export default function SearchBar() {
     return <div id="hreddit_searchbar">
         <input type="text" id="hreddit_searchbar_searchinput" placeholder="Search Subreddits"></input>
         <div id="hreddit_searchbar_searchlistwrapper">
-            {subredditErrorState ?
-                <p>Subreddit load error, click to retry</p> :
-                displayedSubreddits.map((x, i) => {
-                    return <p key={i}>r/{x}</p>
-                })
-                }
+            <div id="hreddit_searchbar_searchlist">
+                {subredditErrorState ?
+                    <p>Subreddit load error, click to retry</p> :
+                    displayedSubreddits.map((x, i) => {
+                        return <p key={i} className="noselect">r/{x}</p>
+                    })
+                    }
+            </div>
         </div>
     </div>
 }
