@@ -8,6 +8,22 @@
                                   supported by Chrome, Edge, Opera and Firefox */
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f100;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
 #hreddit {
   display: flex;
   height: 100vh;
