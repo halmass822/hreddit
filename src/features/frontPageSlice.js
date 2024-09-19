@@ -15,7 +15,7 @@ const frontPageSlice = createSlice({
         errorState: false,
         loadingState: true,
         currentSubreddit: "popular",
-        subreddits: ["popular"],
+        subreddits: ["Loading subreddits..."],
         subredditLoadError: false,
         posts: [],
     },
