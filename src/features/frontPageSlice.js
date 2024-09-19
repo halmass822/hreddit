@@ -1,8 +1,9 @@
 import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
+import axios from "axios";
 
 export const fetchTopSubreddits = createAsyncThunk(
     "frontPageSlice/fetchSubreddits",
-    async() => {
+    async () => {
         const response = await axios.get("https://www.reddit.com/subreddits/popular.json");
         return response.data;
     }
@@ -19,8 +20,7 @@ const frontPageSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder.addCase(fetchTopSubreddits.fulfilled, (state, action) => {
-            console.log(action.payload)
-            // state.frontPageSlice.subreddits = action.payload.map((x) => )
+            console.log(action.payload);
         });
         builder.addCase(fetchTopSubreddits.pending, (state) => {
             console.log("hmmmm");
