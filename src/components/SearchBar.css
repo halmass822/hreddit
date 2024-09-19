@@ -1,0 +1,10 @@
+#hreddit_searchbar {
+    display: flex;
+    flex-flow: column;
+    align-items: stretch;
+    margin-top: 25px;
+}
+
+#hreddit_searchbar_searchinput {
+    height: 20px;
+}
