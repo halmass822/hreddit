@@ -21,14 +21,12 @@ const frontPageSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder.addCase(fetchTopSubreddits.fulfilled, (state, action) => {
-            console.log(action.payload.data.children);
             console.log(action.payload.data.children.map((x) => x.data.display_name));
             state.subreddits = action.payload.data.children.map((x) => x.data.display_name);
-            // console.log(action.payload.map((x) => ))
-            // state.subreddits = action.payload.map()
+            state.subredditLoadError = false;
         });
         builder.addCase(fetchTopSubreddits.rejected, (state) => {
-            state.frontPageSlice.subredditLoadError = true;
+            state.subredditLoadError = true;
         });
     }    
 });
@@ -37,6 +35,7 @@ export const selectErrorState = (state) => state.frontPageSlice.errorState;
 export const selectLoadingState = (state) => state.frontPageSlice.loadingState;
 export const selectCurrentSubreddit = (state) => state.frontPageSlice.currentSubreddit;
 export const selectSubreddits = (state) => state.frontPageSlice.subreddits;
+export const selectSubredditLoadError = (state) => state.frontPageSlice.subredditLoadError;
 export const selectPosts = (state) => state.frontPageSlice.posts;
 
 export default frontPageSlice.reducer;
