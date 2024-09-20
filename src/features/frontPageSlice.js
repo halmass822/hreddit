@@ -9,6 +9,14 @@ export const fetchTopSubreddits = createAsyncThunk(
     }
 )
 
+export const getPostsBySubreddit = createAsyncThunk(
+    "frontPageSlice/getPostsBySubreddit",
+    async (subreddit) => {
+        const response = await axios.get(`https://www.reddit.com/r/${subreddit}.json`)
+        return response.data;
+    }
+)
+
 const frontPageSlice = createSlice({
     name: "frontPageSlice",
     initialState: {
@@ -17,15 +25,31 @@ const frontPageSlice = createSlice({
         currentSubreddit: "popular",
         subreddits: ["Loading subreddits..."],
         subredditLoadError: false,
+        loadingPostsState: false,
+        errorPostsState: false,
         posts: [],
     },
     extraReducers: (builder) => {
+        //get subreddits
         builder.addCase(fetchTopSubreddits.fulfilled, (state, action) => {
             state.subreddits = action.payload.data.children.map((x) => x.data.display_name);
             state.subredditLoadError = false;
         });
         builder.addCase(fetchTopSubreddits.rejected, (state) => {
             state.subredditLoadError = true;
+        });
+        
+        //get posts
+        builder.addCase(getPostsBySubreddit.fulfilled, (state, action) => {
+            state.posts = action.payload.data.children.map((x) => x.data);
+        });
+        builder.addCase(getPostsBySubreddit.pending, (state) => {
+            state.loadingPostsState = true;
+            state.errorPostsState = false;
+        });
+        builder.addCase(getPostsBySubreddit.rejected, (state) => {
+            state.loadingPostsState = false;
+            state.errorPostsState = true;
         });
     }    
 });

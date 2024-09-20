@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import './App.css';
 import LeftBar from './components/LeftBar';
-import { fetchTopSubreddits } from './features/frontPageSlice';
+import { fetchTopSubreddits, getPostsBySubreddit } from './features/frontPageSlice';
 import { useDispatch } from 'react-redux';
 
 function App() {
@@ -9,6 +9,7 @@ function App() {
 
   useEffect(() => { //load popular subreddits at app start
     dispatch(fetchTopSubreddits());
+    dispatch(getPostsBySubreddit("popular"));
   }, [])
 
   return (
