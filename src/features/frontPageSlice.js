@@ -11,7 +11,7 @@ export const fetchTopSubreddits = createAsyncThunk(
 
 export const getPostsBySubreddit = createAsyncThunk(
     "frontPageSlice/getPostsBySubreddit",
-    async (subreddit, filter = "") => {
+    async ([subreddit, filter]) => {
         const response = await axios.get(`https://www.reddit.com/r/${subreddit}${filter}.json`);
         return response.data;
     }

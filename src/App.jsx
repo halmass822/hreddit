@@ -10,7 +10,7 @@ function App() {
 
   useEffect(() => { //load popular subreddits at app start
     dispatch(fetchTopSubreddits());
-    dispatch(getPostsBySubreddit("popular"));
+    dispatch(getPostsBySubreddit(["popular",""]));
   }, [])
 
   return (
