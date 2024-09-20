@@ -3,6 +3,7 @@ import './App.css';
 import LeftBar from './components/LeftBar';
 import { fetchTopSubreddits, getPostsBySubreddit } from './features/frontPageSlice';
 import { useDispatch } from 'react-redux';
+import TopPanel from './components/TopPanel';
 
 function App() {
   const dispatch = useDispatch();
@@ -19,7 +20,7 @@ function App() {
 
       
       <div id="hreddit_rightbar">
-
+        <TopPanel />
       </div>
     </div>
   );
