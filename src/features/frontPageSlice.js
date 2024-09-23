@@ -35,6 +35,9 @@ const frontPageSlice = createSlice({
             state.subreddits = action.payload.data.children.map((x) => x.data.display_name);
             state.subredditLoadError = false;
         });
+        builder.addCase(fetchTopSubreddits.pending, (state, action) => {
+            state.subreddits = ["Loading subreddits..."];
+        });
         builder.addCase(fetchTopSubreddits.rejected, (state) => {
             state.subredditLoadError = true;
         });
