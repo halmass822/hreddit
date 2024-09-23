@@ -1,7 +1,5 @@
 export default function PostRow(props) {
 
-    if(props.postDetails.post_hint === "image") console.log(props.postDetails.thumbail_height);
-
     function displayData() { //determines what type of media (if any) and displays it
         switch(props.postDetails.post_hint) {
             case "image":
