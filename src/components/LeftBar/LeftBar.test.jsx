@@ -2,7 +2,7 @@ const { render, screen } = require("@testing-library/react");
 import { Provider } from "react-redux";
 import store from "../../features/store.js";
 import '@testing-library/jest-dom';
-import LeftBar from "../components/LeftBar";
+import LeftBar from "./LeftBar.jsx";
 
 test('loads splash, input and subreddits', async () => {
     render(<Provider store={store}><LeftBar /></Provider>);
