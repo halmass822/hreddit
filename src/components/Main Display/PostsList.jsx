@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { selectPosts } from "../features/frontPageSlice";
+import { selectPosts } from "../../features/frontPageSlice";
 import PostRow from "./PostRow";
 
 import "./PostsList.css";

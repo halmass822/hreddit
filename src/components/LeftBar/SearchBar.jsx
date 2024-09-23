@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux"
 import "./SearchBar.css"
-import { selectSubredditLoadError, selectSubreddits } from "../features/frontPageSlice"
+import { selectSubredditLoadError, selectSubreddits } from "../../features/frontPageSlice"
 import { useEffect, useState } from "react";
 
 export default function SearchBar() {

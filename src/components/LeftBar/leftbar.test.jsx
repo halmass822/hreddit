@@ -1,6 +1,6 @@
 const { render, screen } = require("@testing-library/react");
 import { Provider } from "react-redux";
-import store from "../features/store.js";
+import store from "../../features/store.js";
 import '@testing-library/jest-dom';
 import LeftBar from "../components/LeftBar";
 

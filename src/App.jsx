@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import './App.css';
-import LeftBar from './components/LeftBar';
+import LeftBar from './components/LeftBar/LeftBar';
 import { fetchTopSubreddits, getPostsBySubreddit } from './features/frontPageSlice';
 import { useDispatch } from 'react-redux';
-import TopPanel from './components/TopPanel';
-import PostsList from './components/PostsList';
+import TopPanel from './components/Main Display/TopPanel';
+import PostsList from './components/Main Display/PostsList';
 
 function App() {
   const dispatch = useDispatch();
