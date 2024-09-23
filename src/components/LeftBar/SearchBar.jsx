@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
 import "./SearchBar.css"
-import { fetchTopSubreddits, selectSubredditLoadError, selectSubreddits } from "../../features/frontPageSlice"
+import { fetchTopSubreddits, getPostsBySubreddit, selectSubredditLoadError, selectSubreddits } from "../../features/frontPageSlice"
 import { useEffect, useState } from "react";
 
 export default function SearchBar() {
@@ -23,7 +23,7 @@ export default function SearchBar() {
                 {subredditErrorState ?
                     <p onClick={() => dispatch(fetchTopSubreddits())}>Subreddit load error, click to retry</p> :
                     displayedSubreddits.map((x, i) => {
-                        return <p key={i} className="noselect">r/{x}</p>
+                        return <p key={i} className="noselect" onClick={() => dispatch(getPostsBySubreddit([x,""]))}>r/{x}</p>
                     })
                     }
             </div>
