@@ -1,7 +1,7 @@
 #hreddit_topPanel {
     display: flex;
     justify-content: space-around;
-    margin: 45px;
+    margin: 30px;
     background-color: rgb(100, 100, 100);
     padding: 20px;
     border-radius: 20px;
