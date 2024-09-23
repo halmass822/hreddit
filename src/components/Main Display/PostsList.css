@@ -13,3 +13,23 @@
     flex-flow: column;
     position: absolute;
 }
+
+.hreddit_postrow {
+    margin: 10px;
+    background-color: rgb(183, 183, 183);
+    border-radius: 10px;
+    padding: 5px;    
+}
+
+
+.hreddit_postrow h4 {
+    margin: 0;
+}
+
+.hreddit_postrow_detailsdiv {
+    display: flex;
+}
+
+.hreddit_postrow_detailsdiv p {
+    margin: 0 10px 0 0;
+}
