@@ -22,7 +22,6 @@ const frontPageSlice = createSlice({
     initialState: {
         errorState: false,
         loadingState: true,
-        currentSubreddit: "popular",
         subreddits: ["Loading subreddits..."],
         subredditLoadError: false,
         loadingPostsState: false,
@@ -35,7 +34,7 @@ const frontPageSlice = createSlice({
             state.subreddits = action.payload.data.children.map((x) => x.data.display_name);
             state.subredditLoadError = false;
         });
-        builder.addCase(fetchTopSubreddits.pending, (state, action) => {
+        builder.addCase(fetchTopSubreddits.pending, (state) => {
             state.subreddits = ["Loading subreddits..."];
         });
         builder.addCase(fetchTopSubreddits.rejected, (state) => {

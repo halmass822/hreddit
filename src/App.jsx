@@ -3,8 +3,8 @@ import './App.css';
 import LeftBar from './components/LeftBar/LeftBar';
 import { fetchTopSubreddits, getPostsBySubreddit } from './features/frontPageSlice';
 import { useDispatch } from 'react-redux';
-import TopPanel from './components/Main Display/TopPanel';
-import PostsList from './components/Main Display/PostsList';
+import TopPanel from './components/MainDisplay/TopPanel';
+import PostsList from './components/MainDisplay/PostsList';
 
 function App() {
   const dispatch = useDispatch();
