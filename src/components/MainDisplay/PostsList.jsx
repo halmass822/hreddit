@@ -7,6 +7,8 @@ import "./PostsList.css";
 export default function PostsList() {
     const loadedPosts = useSelector(selectPosts);
 
+    // console.log(loadedPosts[1]);
+
     return <div id="hreddit_postslist_wrapper">
         <div id="hreddit_postslist">
             {loadedPosts.map((x, i) => <PostRow postDetails={x} key={i}/>)}
