@@ -17,12 +17,16 @@
     margin: 0 0 20px;
     background-color: rgb(183, 183, 183);
     border-radius: 10px;
-    padding: 5px;    
+    padding: 10px;    
 }
 
 
 .hreddit_postrow h4 {
-    margin: 0 0 0 10px;
+    margin: 0px;
+}
+
+.hreddit_postlist_post_image {
+    margin-right: 10px;
 }
 
 .hreddit_postrow_titleandpreview {
