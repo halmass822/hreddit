@@ -29,9 +29,13 @@ export default function SearchBar() {
             <div id="hreddit_searchbar_searchlist">
                 {subredditErrorState ?
                     <p onClick={() => dispatch(fetchTopSubreddits())}>Subreddit load error, click to retry</p> :
-                    displayedSubreddits.map((x, i) => {
-                        return <p key={i} className="noselect" onClick={() => handleSubredditSelect(x)}>r/{x}</p>
-                    })
+                    <>
+                        <p className="noselect" onClick = {() => handleSubredditSelect("popular")}>r/Popular</p>
+                        <p className="noselect" onClick = {() => handleSubredditSelect("all")}>r/All</p>
+                        {displayedSubreddits.map((x, i) => {
+                            return <p key={i} className="noselect" onClick={() => handleSubredditSelect(x)}>r/{x}</p>
+                        })}
+                    </>
                     }
             </div>
         </div>
