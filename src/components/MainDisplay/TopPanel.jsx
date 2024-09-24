@@ -1,12 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
 import "./TopPanel.css";
-import { getPostsBySubreddit, selectCurrentSubreddit, setSelectedFilter } from "../../features/frontPageSlice";
+import { getPostsBySubreddit, selectCurrentFilter, selectCurrentSubreddit, setSelectedFilter } from "../../features/frontPageSlice";
 
 export default function TopPanel() {
 
     const dispatch = useDispatch();
 
     const currentSubreddit = useSelector(selectCurrentSubreddit);
+    const currentFilter = useSelector(selectCurrentFilter);
 
     function handleButtonClick(input) {
         dispatch(setSelectedFilter(input));
@@ -14,9 +15,9 @@ export default function TopPanel() {
     }
 
     return <div id="hreddit_topPanel">
-        <button id="hreddit_topPanel_hot" onClick={() => handleButtonClick("hot")}>Hot</button>
-        <button id="hreddit_topPanel_hot" onClick={() => handleButtonClick("new")}>New</button>
-        <button id="hreddit_topPanel_hot" onClick={() => handleButtonClick("top")}>Top</button>
-        <button id="hreddit_topPanel_hot" onClick={() => handleButtonClick("rising")}>Rising</button>
+        <button id="hreddit_topPanel_hot" onClick={() => handleButtonClick("hot")} className={currentFilter === "hot" && "hreddit_selectedfilter"}>Hot</button>
+        <button id="hreddit_topPanel_hot" onClick={() => handleButtonClick("new")} className={currentFilter === "new" && "hreddit_selectedfilter"}>New</button>
+        <button id="hreddit_topPanel_hot" onClick={() => handleButtonClick("top")} className={currentFilter === "top" && "hreddit_selectedfilter"}>Top</button>
+        <button id="hreddit_topPanel_hot" onClick={() => handleButtonClick("rising")} className={currentFilter === "rising" && "hreddit_selectedfilter"}>Rising</button>
     </div>
 }

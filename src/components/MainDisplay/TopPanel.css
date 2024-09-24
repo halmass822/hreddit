@@ -21,3 +21,7 @@
     background-color: rgb(175, 175, 175);
     color: white;
 }
+
+.hreddit_selectedfilter {
+    background-color: #ba0f00 !important;
+}

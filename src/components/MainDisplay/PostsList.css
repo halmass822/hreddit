@@ -20,6 +20,9 @@
     padding: 10px;    
 }
 
+.hreddit_postrow_detailsdiv {
+    margin-top: 5px;
+}
 
 .hreddit_postrow h4 {
     margin: 0px;
