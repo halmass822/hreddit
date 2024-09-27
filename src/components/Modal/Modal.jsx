@@ -1,3 +1,5 @@
+import "./Modal.css";
+
 export default function Modal() {
 
     return <div id="hreddit_modal_wrapper">

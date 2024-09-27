@@ -17,12 +17,12 @@ function App() {
 
   return (
    <div id="hreddit">
+      <Modal />
 
       <LeftBar />
 
       
       <div id="hreddit_rightbar">
-        <Modal />
         <TopPanel />
         <PostsList />
       </div>
