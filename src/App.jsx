@@ -5,6 +5,7 @@ import { fetchTopSubreddits, getPostsBySubreddit } from './features/frontPageSli
 import { useDispatch } from 'react-redux';
 import TopPanel from './components/MainDisplay/TopPanel';
 import PostsList from './components/MainDisplay/PostsList';
+import Modal from './components/Modal/Modal';
 
 function App() {
   const dispatch = useDispatch();
@@ -21,6 +22,7 @@ function App() {
 
       
       <div id="hreddit_rightbar">
+        <Modal />
         <TopPanel />
         <PostsList />
       </div>
