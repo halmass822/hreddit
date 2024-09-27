@@ -40,7 +40,8 @@ const postSlice = createSlice({
 
 export const selectOverlayState = (state) => state.postSlice.overlayState;
 export const selectPostDetails = (state) => state.postSlice.postDetails;
-
+export const selectLoadingPostState = (state) => state.postSlice.loadingPostState;
+export const selectErrorPostState = (state) => state.postSlice.errorState;
 
 export const {setOverlayState} = postSlice.actions;
 
