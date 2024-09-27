@@ -2,8 +2,15 @@
     position: absolute;
     width: 100vw;
     height: 100vh;
+}
+
+#hreddit_modal_backdrop {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
     background-color: rgba(211, 211, 211, 0.5);
     z-index: 9;
+    cursor: pointer;
 }
 
 #hreddit_modal_main {

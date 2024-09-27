@@ -10,6 +10,7 @@ export default function Modal() {
     const loadingPostState = useSelector(selectLoadingPostState);
 
     return <div id="hreddit_modal_wrapper" hidden={!overlayState}>
+        <div id="hreddit_modal_backdrop" onClick={() => dispatch(setOverlayState(false))}></div>
         <div id="hreddit_modal_main">
             <div id="hreddit_modal_content">
                 <p>content</p>
