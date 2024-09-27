@@ -11,17 +11,19 @@ export default function Modal() {
 
     return <div id="hreddit_modal_wrapper" hidden={!overlayState}>
         <div id="hreddit_modal_backdrop" onClick={() => dispatch(setOverlayState(false))}></div>
-        <div id="hreddit_modal_main">
-            <div id="hreddit_modal_content">
-                <p>content</p>
+        {loadingPostState ? <img id="hreddit_modal_loadstateimg" alt="spinning reddit logo"></img> : <>
+            <div id="hreddit_modal_main">
+                <div id="hreddit_modal_content">
+                    <p>content</p>
+                </div>
+                <div id="hreddit_modal_comments">
+                    <p>commment</p>
+                    <p>commment</p>
+                    <p>commment</p>
+                    <p>commment</p>
+                </div>
             </div>
-            <div id="hreddit_modal_comments">
-                <p>commment</p>
-                <p>commment</p>
-                <p>commment</p>
-                <p>commment</p>
-            </div>
-        </div>
+        </>}
     </div>
     
 }

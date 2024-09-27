@@ -1,9 +1,10 @@
 import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
 import axios from "axios";
 
-const getPostDetails = createAsyncThunk(
-    async([subreddit, postId]) => {
-        const response = await axios.get(`https://www.reddit.com/r/${subreddit}/comments/${postId}/.json`);
+export const getPostDetails = createAsyncThunk(
+    "postSlice/getPostDetails",
+    async(inputUrl) => {
+        const response = await axios.get(`${inputUrl}.json`);
         return response.data;
     }
 );
@@ -30,7 +31,7 @@ const postSlice = createSlice({
             state.loadingPostState = false;
             state.errorState = true;
         })
-        builder.addCase(getPostDetails.fulfilled, (state) => {
+        builder.addCase(getPostDetails.fulfilled, (state, action) => {
             state.loadingPostState = false;
             state.errorState = false;
             state.postDetails = action.payload;

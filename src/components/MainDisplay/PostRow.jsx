@@ -4,13 +4,12 @@ export default function PostRow(props) {
         switch(props.postDetails.post_hint) {
             case "image":
                 return <img className="hreddit_postlist_post_image" src={props.postDetails.thumbnail} height={props.postDetails.thumbnail_height} width={props.postDetails.thumbnail_width}></img>
-                break;
             default:
                 break;
         }
     }
 
-    return <div className="hreddit_postrow">
+    return <div className="hreddit_postrow" onClick={() => props.openPostProp(props.postDetails.url)}>
         <div className="hreddit_postrow_titleandpreview">
         {displayData()}
         <h4>{props.postDetails.title}</h4>
