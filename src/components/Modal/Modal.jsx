@@ -1,8 +1,15 @@
+import { useDispatch, useSelector } from "react-redux";
 import "./Modal.css";
+import { selectLoadingPostState, selectOverlayState, setOverlayState } from "../../features/postSlice";
 
 export default function Modal() {
 
-    return <div id="hreddit_modal_wrapper">
+    const dispatch = useDispatch();
+
+    const overlayState = useSelector(selectOverlayState);
+    const loadingPostState = useSelector(selectLoadingPostState);
+
+    return <div id="hreddit_modal_wrapper" hidden={!overlayState}>
         <div id="hreddit_modal_main">
             <div id="hreddit_modal_content">
                 <p>content</p>
