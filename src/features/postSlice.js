@@ -11,7 +11,7 @@ const getPostDetails = createAsyncThunk(
 const postSlice = createSlice({
     name: "postSlice",
     initialState: {
-        overlayState: {},
+        overlayState: false,
         loadingPostState: false,
         errorState: false,
         postDetails: {},
