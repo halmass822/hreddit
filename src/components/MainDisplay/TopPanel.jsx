@@ -9,8 +9,6 @@ export default function TopPanel() {
     const currentSubreddit = useSelector(selectCurrentSubreddit);
     const currentFilter = useSelector(selectCurrentFilter);
 
-    console.log(currentFilter);
-
     function handleButtonClick(input) {
         dispatch(setSelectedFilter(input));
         dispatch(getPostsBySubreddit([currentSubreddit, input]));
