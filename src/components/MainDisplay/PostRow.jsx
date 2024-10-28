@@ -9,7 +9,7 @@ export default function PostRow(props) {
         }
     }
 
-    return <div className="hreddit_postrow" onClick={() => props.openPostProp(props.postDetails.url)}>
+    return <div className="hreddit_postrow" onClick={() => props.openPostProp(props.postDetails.permalink)}>
         <div className="hreddit_postrow_titleandpreview">
         {displayData()}
         <h4>{props.postDetails.title}</h4>

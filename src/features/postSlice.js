@@ -4,7 +4,8 @@ import axios from "axios";
 export const getPostDetails = createAsyncThunk(
     "postSlice/getPostDetails",
     async(inputUrl) => {
-        const response = await axios.get(`${inputUrl}.json`);
+        console.log(inputUrl)
+        const response = await axios.get(`https://www.reddit.com${inputUrl}.json`);
         return response.data;
     }
 );
