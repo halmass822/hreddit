@@ -19,13 +19,6 @@ export default function SearchBar() {
         setDisplayedSubreddits(subreddits);
     }, [subreddits]);
 
-    function handleSubredditSelect(input) {
-        dispatch(setSelectedSubreddit(input));
-        dispatch(getPostsBySubreddit([input, selectedFilter]));
-    }
-
-    console.log(displayedSubreddits);
-
     return <div id="hreddit_searchbar">
         <input type="text" id="hreddit_searchbar_searchinput" placeholder="Search Subreddits"></input>
         <div id="hreddit_searchbar_searchlistwrapper">
