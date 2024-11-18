@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux"
 import "./SearchBar.css"
 import { fetchTopSubreddits, getPostsBySubreddit, selectCurrentFilter, selectSubredditLoadError, selectSubreddits, setSelectedSubreddit } from "../../features/frontPageSlice"
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function SearchBar() {
 
@@ -23,6 +24,8 @@ export default function SearchBar() {
         dispatch(getPostsBySubreddit([input, selectedFilter]));
     }
 
+    console.log(displayedSubreddits);
+
     return <div id="hreddit_searchbar">
         <input type="text" id="hreddit_searchbar_searchinput" placeholder="Search Subreddits"></input>
         <div id="hreddit_searchbar_searchlistwrapper">
@@ -33,7 +36,9 @@ export default function SearchBar() {
                         <p className="noselect" onClick = {() => handleSubredditSelect("popular")}>r/Popular</p>
                         <p className="noselect" onClick = {() => handleSubredditSelect("all")}>r/All</p>
                         {displayedSubreddits.map((x, i) => {
-                            return <p key={i} className="noselect" onClick={() => handleSubredditSelect(x)}>r/{x}</p>
+                            return <Link key={i} className="noselect" to={`?subreddit=${x}&filter="hot"`}>
+                                <p className="noselect">r/{x}</p>
+                                </Link>
                         })}
                     </>
                     }

@@ -14,8 +14,6 @@ export default function PostsList() {
         dispatch(getPostDetails(inputUrl));
     }
 
-    console.log(loadedPosts[0]);
-
     return <div id="hreddit_postslist_wrapper">
         <div id="hreddit_postslist">
             {loadedPosts.map((x, i) => <PostRow postDetails={x} key={i} openPostProp={openPost}/>)}

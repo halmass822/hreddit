@@ -16,15 +16,6 @@ function App() {
     dispatch(getPostsBySubreddit(["popular",""]));
   }, [])
 
-  const router = createBrowserRouter(
-    createRoutesFromElements(
-      <Route 
-        path="/" element={<PostsList />}
-        errorElement={<PostsList />}>
-      </Route>
-    )
-  )
-
   return (
    <div id="hreddit">
       <Modal />
@@ -34,7 +25,7 @@ function App() {
       
       <div id="hreddit_rightbar">
         <TopPanel />
-        <RouterProvider router={router} />
+        <PostsList />
       </div>
     </div>
   );
