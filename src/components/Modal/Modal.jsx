@@ -20,10 +20,10 @@ export default function Modal() {
             {loadingPostState || _.isEmpty(postDetails) ? <img id="hreddit_modal_loadstateimg" alt="spinning reddit logo" src="./reddit_icon.png"></img> : <>
                     <div id="hreddit_modal_content">
                         <div id="hreddit_modal_content_info">
-                            <p>{postDetails[0].data.children[0].data.author}</p>
+                            <p>r/{postDetails[0].data.children[0].data.subreddit} u/{postDetails[0].data.children[0].data.author}</p>
                         </div>
                         <h4>{postDetails[0].data.children[0].data.title}</h4>
-                        {<img src={postDetails[0].data.children[0].data.url} alt="reddit_post_image"></img>}
+                        {postDetails[0].data.children[0].data.post_hint === "image" && <img className="hreddit_modal_postimg" src={postDetails[0].data.children[0].data.url} alt="reddit_post_image"></img>}
                     </div>
                     <div id="hreddit_modal_comments">
                     </div>
