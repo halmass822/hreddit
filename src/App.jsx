@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import TopPanel from './components/MainDisplay/TopPanel';
 import PostsList from './components/MainDisplay/PostsList';
 import Modal from './components/Modal/Modal';
+import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom';
 
 function App() {
   const dispatch = useDispatch();
@@ -14,6 +15,13 @@ function App() {
     dispatch(fetchTopSubreddits());
     dispatch(getPostsBySubreddit(["popular",""]));
   }, [])
+
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route path="/" element={<PostsList />}>
+      </Route>
+    )
+  )
 
   return (
    <div id="hreddit">
@@ -24,7 +32,7 @@ function App() {
       
       <div id="hreddit_rightbar">
         <TopPanel />
-        <PostsList />
+        <RouterProvider router={router} />
       </div>
     </div>
   );
