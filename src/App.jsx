@@ -18,7 +18,9 @@ function App() {
 
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path="/" element={<PostsList />}>
+      <Route 
+        path="/" element={<PostsList />}
+        errorElement={<PostsList />}>
       </Route>
     )
   )
